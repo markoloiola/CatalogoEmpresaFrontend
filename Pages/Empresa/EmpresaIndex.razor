@@ -1,0 +1,95 @@
+@page "/empresas"
+@using Dtos.Empresa
+@inject HttpClient Http
+@inject NavigationManager Navigation
+@inject IJSRuntime JS
+
+<PageTitle>Empresas</PageTitle>
+
+<h3 class="text-2x1 font-bold text-teal-600">Empresas</h3>
+
+<div class="flex justify-end">
+    <a href="/empresas/criar" class="not-prose myif-add-button">Nova Empresa</a>
+</div>
+
+@if(Empresas is null){
+    <p>Carregando..</p>
+}
+else
+{
+    <table class="myif-table">
+        <thead>
+            <tr class="myif-table-row-th">
+                <th class="px-4 py-3">Nome Fantasia</th>
+                @* <th class="px-4 py-3">Cnpj</th> *@
+                <th class="px-4 py-3">Endereco</th>
+                <th class="px-4 py-3">Telefone</th>
+                <th class="px-4 py-3">Cidade</th>
+                <th class="px-4 py-3">Email</th>
+                <th class="px-4 py-3"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var empresa in Empresas)
+            {
+                <tr class="myif-table-row">
+                    <td class="x-4 py-3">@empresa.NomeFantasia</td>
+                    @* <td class="x-4 py-3">@empresa.Cnpj</td> *@
+                    <td class="x-4 py-3">@empresa.Endereco</td>
+                    <td class="x-4 py-3">@empresa.Telefone</td>
+                    <td class="x-4 py-3">@empresa.Cidade</td>
+                    <td class="x-4 py-3">@empresa.Email</td>
+                    <td>
+                        @* Botão editar *@
+                        <button class="myif-edit-button" @onclick="() => EditarEmpresa(empresa.Id)" >
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                            </svg>
+                        </button>
+
+                        <button class="myif-remove-button" @onclick="() => ExcluirEmpresa(empresa.Id)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+</svg>
+                        </button>  
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+
+
+@code
+{
+    private List<EmpresaResponseDto> Empresas { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+            Empresas = await Http.GetFromJsonAsync<List<EmpresaResponseDto>>("/empresas");
+    }
+
+    private void EditarEmpresa(int id){
+        Navigation.NavigateTo($"/empresas/editar/{id}");
+    }
+
+    private async Task ExcluirEmpresa(int id){
+
+        bool excluir = await JS.InvokeAsync<bool>("confirm", "Deseja mesmo escluir essa empresa?");
+
+        if(excluir){
+            @* Manda uma requisição direto com o id para api *@
+             await Http.DeleteAsync($"/empresas/{id}");
+
+            @* Removendo da lista que está exibindo na tela *@
+            Empresas.RemoveAll(empresa => empresa.Id == id);
+        }    
+
+        
+
+    }
+   
+}

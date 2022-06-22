@@ -1,0 +1,70 @@
+@page "/empresas/criar"
+@inject HttpClient Http
+@inject NavigationManager Navigation
+@using Dtos.Empresa
+
+
+<PageTitle>Adicionar Empresa</PageTitle>
+
+<h3 class="text-2xl font-bold text-teal-600">Adicionar Empresa</h3>
+
+<EditForm Model="@Empresa" OnValidSubmit="@CriarEmpresa">
+
+    <label class="block mt-4">
+        <span class="text-gray-600">Razão Socioal</span>
+        <InputText @bind-Value="Empresa.RazaoSocial" class="myif-form-input" />
+    </label>
+
+    <label class="block mt-4">
+        <span class="text-gray-600">Nome Fantasia</span>
+        <InputText @bind-Value="Empresa.NomeFantasia" class="myif-form-input" />
+    </label>
+
+    <label class="block mt-4">
+        <span class="text-gray-600">Cnpj</span>
+        <InputText @bind-Value="Empresa.Cnpj" class="myif-form-input" />
+    </label>
+
+    <label class="block mt-4">
+        <span class="text-gray-600">Estado</span>
+        <InputText @bind-Value="Empresa.Estado" class="myif-form-input" />
+    </label>
+
+    <label class="block mt-4">
+        <span class="text-gray-600">Endereco</span>
+        <InputText @bind-Value="Empresa.Endereco" class="myif-form-input" />
+    </label>
+
+    <label class="block mt-4">
+        <span class="text-gray-600">Telefone</span>
+        <InputText @bind-Value="Empresa.Telefone" class="myif-form-input" />
+    </label>
+
+    <label class="block mt-4">
+        <span class="text-gray-600">Cidade</span>
+        <InputText @bind-Value="Empresa.Cidade" class="myif-form-input" />
+    </label>
+
+    <label class="block mt-4">
+        <span class="text-gray-600">Email</span>
+        <InputText @bind-Value="Empresa.Email" class="myif-form-input" />
+    </label>
+
+    <button class="myif-button-submit">Salvar</button>
+
+</EditForm>
+
+@code
+{
+    //Propriedade que irá istá associada com o formulário
+    public  EmpresaCreateUpdateDto Empresa { get; set; } = new();
+
+
+    private async Task CriarEmpresa(){
+        @* Emvia a requisição para a API salvar a empresa *@
+        await Http.PostAsJsonAsync("/empresas", Empresa);
+        Navigation.NavigateTo("/empresas");
+    }
+
+
+}

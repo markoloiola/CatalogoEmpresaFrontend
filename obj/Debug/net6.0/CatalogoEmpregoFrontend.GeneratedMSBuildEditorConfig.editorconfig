@@ -1,0 +1,51 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = browser
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = true
+build_property.IncludeAllContentForSelfExtract = 
+build_property.RootNamespace = CatalogoEmpregoFrontend
+build_property.RootNamespace = CatalogoEmpregoFrontend
+build_property.ProjectDir = /home/marko/Área de Trabalho/CatalogoEmpregoFrontend/
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /home/marko/Área de Trabalho/CatalogoEmpregoFrontend
+build_property._RazorSourceGeneratorDebug = 
+
+[/home/marko/Área de Trabalho/CatalogoEmpregoFrontend/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/marko/Área de Trabalho/CatalogoEmpregoFrontend/Pages/Empresa/EmpresaCreateForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRW1wcmVzYS9FbXByZXNhQ3JlYXRlRm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/marko/Área de Trabalho/CatalogoEmpregoFrontend/Pages/Empresa/EmpresaIndex.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRW1wcmVzYS9FbXByZXNhSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/marko/Área de Trabalho/CatalogoEmpregoFrontend/Pages/Empresa/EmpresaUpdateForm.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvRW1wcmVzYS9FbXByZXNhVXBkYXRlRm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/marko/Área de Trabalho/CatalogoEmpregoFrontend/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/marko/Área de Trabalho/CatalogoEmpregoFrontend/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/marko/Área de Trabalho/CatalogoEmpregoFrontend/Shared/MenuLateral.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkL01lbnVMYXRlcmFsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/marko/Área de Trabalho/CatalogoEmpregoFrontend/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
